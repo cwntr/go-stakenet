@@ -1,4 +1,4 @@
-package xsn
+package explorer
 
 import (
 	"fmt"
@@ -53,21 +53,6 @@ func TestAPI_GetAddress(t *testing.T) {
 	}
 }
 
-func TestAPI_GetAddressTransactions(t *testing.T) {
-	testAddress := "Xi2xEzvFkPtuK459PYBaangiwbyGHgMHYh"
-	client := NewXSNExplorerAPIClient(nil)
-	addr, err := client.GetAddressTransactions(testAddress, url.Values{})
-	if err != nil {
-		t.Fail()
-		fmt.Printf("err :%v", err)
-		return
-	}
-	if len(addr.Data) == 0 {
-		t.Fail()
-		return
-	}
-}
-
 func TestAPI_GetAddressTransactionsV2(t *testing.T) {
 	testAddress := "XgzfcNUMNomWrPMbbsgX6MqaU47fvVZKbX"
 	client := NewXSNExplorerAPIClient(nil)
@@ -76,27 +61,9 @@ func TestAPI_GetAddressTransactionsV2(t *testing.T) {
 	addr, err := client.GetAddressTransactionsV2(testAddress, q)
 	if err != nil {
 		t.Fail()
-		fmt.Printf("err :%v", err)
 		return
 	}
 	if len(addr.Data) != 1 {
-		t.Fail()
-		return
-	}
-}
-
-func TestAPI_GetAddressTransactionsWithQuery(t *testing.T) {
-	testAddress := "Xi2xEzvFkPtuK459PYBaangiwbyGHgMHYh"
-	client := NewXSNExplorerAPIClient(nil)
-	q := url.Values{}
-	q.Set("limit", "50")
-	addr, err := client.GetAddressTransactions(testAddress, q)
-	if err != nil {
-		fmt.Printf("err :%v", err)
-		t.Fail()
-		return
-	}
-	if addr.Limit != 50 {
 		t.Fail()
 		return
 	}
@@ -239,12 +206,12 @@ func TestAPI_BlockTransactionsByHashWithQuery(t *testing.T) {
 		t.Fail()
 		return
 	}
-	if tx.Data[0].ID != "491706404c7eadbbff3c68fc21c1be7bca134ad3b9502b626320549f001267db" ||
+	if tx.Data[0].ID != "07bd3cc7da380aa293a5271d7843034e902872814b09e4cf00397abc656c1ce4" ||
 		tx.Data[0].Blockhash != testBlockHash {
 		t.Fail()
 		return
 	}
-	if tx.Data[1].ID != "916819d7fc141b4ee44c2453e5e5a7c40b0dd7c6bd3e3f66413e2f4c741fed79" ||
+	if tx.Data[1].ID != "491706404c7eadbbff3c68fc21c1be7bca134ad3b9502b626320549f001267db" ||
 		tx.Data[1].Blockhash != testBlockHash {
 		t.Fail()
 		return
@@ -277,22 +244,27 @@ func TestAPI_GetRewardsSummary(t *testing.T) {
 		return
 	}
 	if summary.AverageReward < 0 {
+		fmt.Println("b")
 		t.Fail()
 		return
 	}
 	if summary.AverageInput < 0 {
+		fmt.Println("c")
 		t.Fail()
 		return
 	}
 	if summary.AveragePoSInput < 0 {
+		fmt.Println("d")
 		t.Fail()
 		return
 	}
 	if summary.AverageTPoSInput < 0 {
+		fmt.Println("f")
 		t.Fail()
 		return
 	}
 	if summary.MedianWaitTime < 0 {
+		fmt.Println("g")
 		t.Fail()
 		return
 	}
@@ -301,14 +273,13 @@ func TestAPI_GetRewardsSummary(t *testing.T) {
 func TestAPI_Balance(t *testing.T) {
 	client := NewXSNExplorerAPIClient(nil)
 	q := url.Values{}
-	q.Set("limit", "2")
-	q.Set("offset", "1")
+	q.Set("limit", "13")
 	tx, err := client.GetBalances(q)
 	if err != nil {
 		t.Fail()
 		return
 	}
-	if tx.Offset != 1 || tx.Limit != 2 || len(tx.Data) != 2 {
+	if len(tx.Data) != 13 {
 		t.Fail()
 		return
 	}

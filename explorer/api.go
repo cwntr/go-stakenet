@@ -1,4 +1,4 @@
-package xsn
+package explorer
 
 import (
 	"encoding/json"
@@ -17,19 +17,19 @@ const (
 	GetTransactionById    = "/transactions/%s"
 	GetRawTransactionById = "/transactions/%s/raw"
 
-	GetAddress             = "/addresses/%s"
-	GetAddressTransactions = "/addresses/%s/transactions"
-	GetAddressUTXOs        = "/addresses/%s/utxos"
+	GetAddress      = "/addresses/%s"
+	GetAddressUTXOs = "/addresses/%s/utxos"
 
 	GetBlocksLatest             = "/blocks"
 	GetBlocksByQuery            = "/blocks/%s"
 	GetRawBlocksByQuery         = "/blocks/%s/raw"
-	GetBlocksTransactionsByHash = "/blocks/%s/transactions"
+	GetBlocksTransactionsByHash = "/v2/blocks/%s/transactions"
 
 	GetStats          = "/stats"
 	GetRewardsSummary = "/rewards-summary"
+	GetRewardsPrices  = "/prices"
 
-	GetBalances = "/balances"
+	GetBalances = "/v2/balances"
 
 	GetMasternodes     = "/masternodes"
 	GetMasternodesByIP = "/masternodes/%s"
@@ -86,16 +86,6 @@ func (x *API) GetRawTransactionById(txId string) (t RawTransaction, err error) {
 
 func (x *API) GetAddress(address string) (a Address, err error) {
 	body, err := x.get(fmt.Sprintf("%s%s", x.baseUrl, fmt.Sprintf(GetAddress, address)))
-	if err != nil {
-		return
-	}
-	err = json.Unmarshal(body, &a)
-	return
-}
-
-//address: String, offset: Int ?= 0, limit: Int ?= 10, orderBy: String ?= ""
-func (x *API) GetAddressTransactions(address string, query url.Values) (a AddressTransactions, err error) {
-	body, err := x.get(fmt.Sprintf("%s%s?%s", x.baseUrl, fmt.Sprintf(GetAddressTransactions, address), query.Encode()))
 	if err != nil {
 		return
 	}

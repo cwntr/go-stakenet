@@ -1,14 +1,14 @@
 package main
 
 import (
-	"github.com/cwntr/go-stakenet/client"
-	"github.com/cwntr/go-stakenet/explorer/xsn"
-	walletxsn "github.com/cwntr/go-stakenet/wallet/xsn"
+	"github.com/cwntr/go-stakenet/core"
+	"github.com/cwntr/go-stakenet/explorer"
+	"github.com/cwntr/go-stakenet/lnd"
 )
 
 func main() {
 	//guarantee export
-	_ = xsn.API{}
-	_ = client.CMCInfoMap{}
-	_ = walletxsn.MasternodeItem{}
+	_ = core.MasternodeItem{}
+	_ = explorer.RawBlock{}
+	_ = lnd.Nodes{}
 }

@@ -1,4 +1,4 @@
-package xsn
+package explorer
 
 type Transaction struct {
 	ID            string `json:"id"`
@@ -203,7 +203,7 @@ type RewardSummary struct {
 	AverageInput     float64 `json:"averageInput"`
 	AveragePoSInput  float64 `json:"averagePoSInput"`
 	AverageTPoSInput float64 `json:"averageTPoSInput"`
-	MedianWaitTime   int     `json:"medianWaitTime"`
+	MedianWaitTime   float64 `json:"medianWaitTime"`
 }
 
 type Stats struct {
@@ -216,10 +216,7 @@ type Stats struct {
 }
 
 type Balance struct {
-	Offset int `json:"offset"`
-	Limit  int `json:"limit"`
-	Total  int `json:"total"`
-	Data   []struct {
+	Data []struct {
 		Address   string  `json:"address"`
 		Received  float64 `json:"received"`
 		Spent     float64 `json:"spent"`

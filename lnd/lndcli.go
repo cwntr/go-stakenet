@@ -3,7 +3,7 @@ package lnd
 import (
 	"fmt"
 
-	"github.com/cwntr/xsn-tech/pkg/common"
+	"github.com/cwntr/go-stakenet/common"
 )
 
 func GetDescribePath(cliPath string, isTest bool, options ...string) (dp DescribePath, err error) {

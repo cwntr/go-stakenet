@@ -1,4 +1,4 @@
-package xsn
+package core
 
 import (
 	"fmt"

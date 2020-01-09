@@ -10,6 +10,7 @@ func TestDescribePath(t *testing.T) {
 	data, err := UnmarshalDescribePath(d)
 	if err != nil {
 		fmt.Printf("err: %v \n", err)
+		t.Fail()
 		return
 	}
 	for _, node := range data.Nodes {
@@ -28,11 +29,11 @@ func TestListPeers(t *testing.T) {
 	data, err := UnmarshalListPeers(d)
 	if err != nil {
 		fmt.Printf("err: %v \n", err)
+		t.Fail()
 		return
 	}
 	for _, peer := range data.Peers {
 		fmt.Printf("peer: %v \n", peer)
-
 	}
 }
 
@@ -41,6 +42,7 @@ func TestNetworkInfo(t *testing.T) {
 	data, err := UnmarshalNetworkInfo(d)
 	if err != nil {
 		fmt.Printf("err: %v \n", err)
+		t.Fail()
 		return
 	}
 	fmt.Printf("network data: %v \n", data)
@@ -51,6 +53,7 @@ func TestGetInfo(t *testing.T) {
 	data, err := UnmarshalGetInfo(d)
 	if err != nil {
 		fmt.Printf("err: %v \n", err)
+		t.Fail()
 		return
 	}
 	fmt.Printf("get info : %v \n", data)
@@ -61,17 +64,18 @@ func TestGetNodeInfo(t *testing.T) {
 	data, err := UnmarshalGetNodeInfo(d)
 	if err != nil {
 		fmt.Printf("err: %v \n", err)
+		t.Fail()
 		return
 	}
 	fmt.Printf("get node info : %v \n", data)
 }
-
 
 func TestGetChannelInfo(t *testing.T) {
 	d := TestDataGetChannelInfo()
 	data, err := UnmarshalGetChannelInfo(d)
 	if err != nil {
 		fmt.Printf("err: %v \n", err)
+		t.Fail()
 		return
 	}
 	fmt.Printf("get channel info : %v \n", data)
