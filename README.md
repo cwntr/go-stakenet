@@ -23,3 +23,42 @@ requirement: go v1.11+
 | CLI  | XSN Core Wallet      | [github.com/X9Developers/XSN](https://github.com/X9Developers/XSN)                       | 2020-01 |
 | API  | XSN Block Explorer   | [github.com/X9Developers/block-explorer](https://github.com/X9Developers/block-explorer) | 2020-01 |
 | CLI  | XSN Lightning Wallet | [github.com/lightningnetwork](https://github.com/lightningnetwork)                       | 2020-01 |
+
+
+## Usage Explorer Client
+
+```
+import (
+	"fmt"
+
+	"github.com/cwntr/go-stakenet/explorer"
+	"github.com/cwntr/go-stakenet/tools"
+)
+
+func testExplorer() {
+	// no parameter will do on-fly-calls without caching
+	e := explorer.NewXSNExplorerAPIClient(nil)
+	stats, err := e.GetStats()
+	if err != nil {
+		return
+	}
+	fmt.Printf("stats: %v\n", stats)
+
+
+
+	// with recorder pointer parameter will locally store request and response pairs. This should only be done used for responses
+	// that will not change. e.g. get all details of a block, since a block is not gonna change.
+	recorderPath := "records/xsn_block/%s"
+	blockHash := "bf069bd8e1ce427c3dd7adf1aacc907051536210351bb8abcc76325486bce61d"
+	blockRec, err := tools.CreateRecorder(fmt.Sprintf(recorderPath, blockHash))
+	if err != nil {
+		return
+	}
+
+	e2 := explorer.NewXSNExplorerAPIClient(blockRec)
+	blockData, err := e2.GetBlockByQuery(blockHash)
+	blockRec.Stop() //flush
+
+	fmt.Printf("blockData: %v\n", blockData)
+}
+```

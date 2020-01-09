@@ -27,7 +27,7 @@ const (
 
 	GetStats          = "/stats"
 	GetRewardsSummary = "/rewards-summary"
-	GetRewardsPrices  = "/prices"
+	GetPrices         = "/prices"
 
 	GetBalances = "/v2/balances"
 
@@ -161,6 +161,15 @@ func (x *API) GetStats() (s Stats, err error) {
 
 func (x *API) GetRewardsSummary() (s RewardSummary, err error) {
 	body, err := x.get(fmt.Sprintf("%s%s", x.baseUrl, GetRewardsSummary))
+	if err != nil {
+		return
+	}
+	err = json.Unmarshal(body, &s)
+	return
+}
+
+func (x *API) GetPrices() (s Prices, err error) {
+	body, err := x.get(fmt.Sprintf("%s%s", x.baseUrl, GetPrices))
 	if err != nil {
 		return
 	}

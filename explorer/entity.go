@@ -206,6 +206,11 @@ type RewardSummary struct {
 	MedianWaitTime   float64 `json:"medianWaitTime"`
 }
 
+type Prices struct {
+	USD float64 `json:"usd"`
+	EUR float64 `json:"eur"`
+}
+
 type Stats struct {
 	Difficulty        float64 `json:"difficulty"`
 	Blocks            int     `json:"blocks"`

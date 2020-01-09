@@ -270,6 +270,26 @@ func TestAPI_GetRewardsSummary(t *testing.T) {
 	}
 }
 
+func TestAPI_GetPrices(t *testing.T) {
+	client := NewXSNExplorerAPIClient(nil)
+	prices, err := client.GetPrices()
+	if err != nil {
+		fmt.Printf("err: %v \n", err)
+		t.Fail()
+		return
+	}
+	if prices.USD <= 0 {
+		fmt.Println("b")
+		t.Fail()
+		return
+	}
+	if prices.EUR <= 0 {
+		fmt.Println("c")
+		t.Fail()
+		return
+	}
+}
+
 func TestAPI_Balance(t *testing.T) {
 	client := NewXSNExplorerAPIClient(nil)
 	q := url.Values{}
