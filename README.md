@@ -36,7 +36,7 @@ import (
 )
 
 func testExplorer() {
-	// no parameter will do on-fly-calls without caching
+	// no parameter will do on-fly-requests and responses without caching
 	e := explorer.NewXSNExplorerAPIClient(nil)
 	stats, err := e.GetStats()
 	if err != nil {
@@ -46,7 +46,7 @@ func testExplorer() {
 
 
 
-	// with recorder pointer parameter will locally store request and response pairs. This should only be done used for responses
+	// with recorder pointer parameter will locally store request and response pairs. This should only be used for responses
 	// that will not change. e.g. get all details of a block, since a block is not gonna change.
 	recorderPath := "records/xsn_block/%s"
 	blockHash := "bf069bd8e1ce427c3dd7adf1aacc907051536210351bb8abcc76325486bce61d"
