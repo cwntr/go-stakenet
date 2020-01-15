@@ -201,6 +201,7 @@ type BlockTransactions struct {
 type RewardSummary struct {
 	AverageReward    float64 `json:"averageReward"`
 	AverageInput     float64 `json:"averageInput"`
+	MedianInput      float64 `json:"medianInput"`
 	AveragePoSInput  float64 `json:"averagePoSInput"`
 	AverageTPoSInput float64 `json:"averageTPoSInput"`
 	MedianWaitTime   float64 `json:"medianWaitTime"`

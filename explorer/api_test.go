@@ -244,27 +244,26 @@ func TestAPI_GetRewardsSummary(t *testing.T) {
 		return
 	}
 	if summary.AverageReward < 0 {
-		fmt.Println("b")
 		t.Fail()
 		return
 	}
 	if summary.AverageInput < 0 {
-		fmt.Println("c")
+		t.Fail()
+		return
+	}
+	if summary.MedianInput < 0 {
 		t.Fail()
 		return
 	}
 	if summary.AveragePoSInput < 0 {
-		fmt.Println("d")
 		t.Fail()
 		return
 	}
 	if summary.AverageTPoSInput < 0 {
-		fmt.Println("f")
 		t.Fail()
 		return
 	}
 	if summary.MedianWaitTime < 0 {
-		fmt.Println("g")
 		t.Fail()
 		return
 	}
