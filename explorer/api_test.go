@@ -269,6 +269,7 @@ func TestAPI_GetRewardsSummary(t *testing.T) {
 	}
 }
 
+/*
 func TestAPI_GetPrices(t *testing.T) {
 	client := NewXSNExplorerAPIClient(nil)
 	prices, err := client.GetPrices()
@@ -288,7 +289,7 @@ func TestAPI_GetPrices(t *testing.T) {
 		return
 	}
 }
-
+*/
 func TestAPI_Balance(t *testing.T) {
 	client := NewXSNExplorerAPIClient(nil)
 	q := url.Values{}

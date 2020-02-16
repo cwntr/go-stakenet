@@ -52,6 +52,46 @@ func UnmarshalDescribePath(str string) (dp DescribePath, err error) {
 	return
 }
 
+type WalletBalance struct {
+	TotalBalance       string `json:"total_balance"`
+	ConfirmedBalance   string `json:"confirmed_balance"`
+	UnconfirmedBalance string `json:"unconfirmed_balance"`
+}
+
+func UnmarshalWalletBalance(str string) (dp WalletBalance, err error) {
+	err = json.Unmarshal([]byte(str), &dp)
+	return
+}
+
+type ListChannels struct {
+	Channels []struct {
+		Active                bool          `json:"active"`
+		RemotePubkey          string        `json:"remote_pubkey"`
+		ChannelPoint          string        `json:"channel_point"`
+		ChanID                string        `json:"chan_id"`
+		Capacity              string        `json:"capacity"`
+		LocalBalance          string        `json:"local_balance"`
+		RemoteBalance         string        `json:"remote_balance"`
+		CommitFee             string        `json:"commit_fee"`
+		CommitWeight          string        `json:"commit_weight"`
+		FeePerKw              string        `json:"fee_per_kw"`
+		UnsettledBalance      string        `json:"unsettled_balance"`
+		TotalSatoshisSent     string        `json:"total_satoshis_sent"`
+		TotalSatoshisReceived string        `json:"total_satoshis_received"`
+		NumUpdates            string        `json:"num_updates"`
+		PendingHtlcs          []interface{} `json:"pending_htlcs"`
+		CsvDelay              int           `json:"csv_delay"`
+		Private               bool          `json:"private"`
+		Initiator             bool          `json:"initiator"`
+		ChanStatusFlags       string        `json:"chan_status_flags"`
+	} `json:"channels"`
+}
+
+func UnmarshalListChannels(str string) (dp ListChannels, err error) {
+	err = json.Unmarshal([]byte(str), &dp)
+	return
+}
+
 type ListPeer struct {
 	PubKey    string `json:"pub_key"`
 	Address   string `json:"address"`

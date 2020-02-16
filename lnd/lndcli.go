@@ -6,6 +6,38 @@ import (
 	"github.com/cwntr/go-stakenet/common"
 )
 
+func GetWalletBalance(cliPath string, isTest bool, options ...string) (dp WalletBalance, err error) {
+	str := ""
+	if isTest {
+		str = TestDataGetWalletBalance()
+	} else {
+		options = append(options, "walletbalance")
+		str, err = common.ExecCLI(cliPath, options...)
+		if err != nil {
+			fmt.Printf("err: %v \n", err)
+			return
+		}
+	}
+	dp, err = UnmarshalWalletBalance(str)
+	return
+}
+
+func GetListChannels(cliPath string, isTest bool, options ...string) (dp ListChannels, err error) {
+	str := ""
+	if isTest {
+		str = TestDataListChannels()
+	} else {
+		options = append(options, "listchannels")
+		str, err = common.ExecCLI(cliPath, options...)
+		if err != nil {
+			fmt.Printf("err: %v \n", err)
+			return
+		}
+	}
+	dp, err = UnmarshalListChannels(str)
+	return
+}
+
 func GetDescribePath(cliPath string, isTest bool, options ...string) (dp DescribePath, err error) {
 	str := ""
 	if isTest {

@@ -1,7 +1,6 @@
 package lnd
 
-
-func TestDataDescribePath() string{
+func TestDataDescribePath() string {
 	return `{
     "nodes": [
         {
@@ -2225,7 +2224,6 @@ func TestDataGetNodeInfo() string {
 }`
 }
 
-
 func TestDataGetChannelInfo() string {
 	return `{
     "channel_id": "1001420896927350785",
@@ -2250,6 +2248,88 @@ func TestDataGetChannelInfo() string {
         "disabled": true,
         "max_htlc_msat": "99099000000"
     }
+}
+`
+}
+
+func TestDataGetWalletBalance() string {
+	return `{
+"total_balance": "2065963146",
+"confirmed_balance": "2065963146",
+"unconfirmed_balance": "0"
+}`
+}
+
+func TestDataListChannels() string {
+	return `{
+    "channels": [
+        {
+            "active": true,
+            "remote_pubkey": "0207e0cc77fcb96a895e6935dee205e2b16a8df5ed49827f70977a268625237214",
+            "channel_point": "b08c0f50fb1c57f4cbdd052a843dabc0e485d67c738af06a8cadf9519d49c355:0",
+            "chan_id": "1108385786123911168",
+            "capacity": "16776992",
+            "local_balance": "16776809",
+            "remote_balance": "0",
+            "commit_fee": "183",
+            "commit_weight": "600",
+            "fee_per_kw": "253",
+            "unsettled_balance": "0",
+            "total_satoshis_sent": "0",
+            "total_satoshis_received": "0",
+            "num_updates": "0",
+            "pending_htlcs": [
+            ],
+            "csv_delay": 144,
+            "private": false,
+            "initiator": true,
+            "chan_status_flags": "ChanStatusDefault"
+        },
+        {
+            "active": true,
+            "remote_pubkey": "0207e0cc77fcb96a895e6935dee205e2b16a8df5ed49827f70977a268625237214",
+            "channel_point": "cf9bec57848cd1d361c73e1c5cf889fdbe4061f6c07531ce85081148703429f2:1",
+            "chan_id": "1108385786124042241",
+            "capacity": "16776992",
+            "local_balance": "0",
+            "remote_balance": "16776809",
+            "commit_fee": "183",
+            "commit_weight": "552",
+            "fee_per_kw": "253",
+            "unsettled_balance": "0",
+            "total_satoshis_sent": "0",
+            "total_satoshis_received": "0",
+            "num_updates": "0",
+            "pending_htlcs": [
+            ],
+            "csv_delay": 144,
+            "private": false,
+            "initiator": false,
+            "chan_status_flags": "ChanStatusDefault"
+        },
+        {
+            "active": true,
+            "remote_pubkey": "02a49dc96ebcfd889f2cc694e9135fc8a502f7df4aa42b9a6f88d57759ddee5385",
+            "channel_point": "f3568581ebe1490c66961badfc3fe57b01ded61450d8c9a54f0c51c856af1782:0",
+            "chan_id": "1108385786123976704",
+            "capacity": "16776992",
+            "local_balance": "16776809",
+            "remote_balance": "0",
+            "commit_fee": "183",
+            "commit_weight": "600",
+            "fee_per_kw": "253",
+            "unsettled_balance": "0",
+            "total_satoshis_sent": "0",
+            "total_satoshis_received": "0",
+            "num_updates": "0",
+            "pending_htlcs": [
+            ],
+            "csv_delay": 144,
+            "private": false,
+            "initiator": true,
+            "chan_status_flags": "ChanStatusDefault"
+        }
+    ]
 }
 `
 }

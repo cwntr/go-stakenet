@@ -80,3 +80,25 @@ func TestGetChannelInfo(t *testing.T) {
 	}
 	fmt.Printf("get channel info : %v \n", data)
 }
+
+func TestWalletBalance(t *testing.T) {
+	d := TestDataGetWalletBalance()
+	data, err := UnmarshalWalletBalance(d)
+	if err != nil {
+		fmt.Printf("err: %v \n", err)
+		t.Fail()
+		return
+	}
+	fmt.Printf("get channel info : %v \n", data)
+}
+
+func TestGetListChannels(t *testing.T) {
+	d := TestDataListChannels()
+	data, err := UnmarshalListChannels(d)
+	if err != nil {
+		fmt.Printf("err: %v \n", err)
+		t.Fail()
+		return
+	}
+	fmt.Printf("get channel info : %v \n", data)
+}
