@@ -209,7 +209,6 @@ type RewardSummary struct {
 
 type Prices struct {
 	USD float64 `json:"usd"`
-	EUR float64 `json:"eur"`
 }
 
 type Stats struct {
