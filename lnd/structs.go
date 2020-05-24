@@ -173,11 +173,14 @@ func UnmarshalGetInfo(str string) (gi GetInfo, err error) {
 
 type GetNodeInfo struct {
 	Node struct {
-		LastUpdate int           `json:"last_update"`
-		PubKey     string        `json:"pub_key"`
-		Alias      string        `json:"alias"`
-		Addresses  []interface{} `json:"addresses"`
-		Color      string        `json:"color"`
+		LastUpdate int    `json:"last_update"`
+		PubKey     string `json:"pub_key"`
+		Alias      string `json:"alias"`
+		Addresses  []struct {
+			Network string `json:"network"`
+			Addr    string `json:"addr"`
+		} `json:"addresses"`
+		Color string `json:"color"`
 	} `json:"node"`
 	NumChannels   int           `json:"num_channels"`
 	TotalCapacity string        `json:"total_capacity"`
