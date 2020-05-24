@@ -2190,7 +2190,7 @@ func TestDataGetInfo() string {
 	"num_peers": 2,
 	"block_height": 879963,
 	"block_hash": "0de62c4cb3891c1a9f831e46162b2c6b5ae5ddf0aaaa71e86087c4706ec53bd7",
-	"best_header_timestamp": 1574193322,
+	"best_header_timestamp": "1574193322",
 	"synced_to_chain": true,
 	"testnet": false,
 	"chains": [

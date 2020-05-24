@@ -31,6 +31,7 @@ type Edge struct {
 		FeeRateMilliMsat string `json:"fee_rate_milli_msat"`
 		Disabled         bool   `json:"disabled"`
 		MaxHtlcMsat      string `json:"max_htlc_msat"`
+		LastUpdate       int    `json:"last_update"`
 	} `json:"node1_policy"`
 	Node2Policy struct {
 		TimeLockDelta    int    `json:"time_lock_delta"`
@@ -39,6 +40,7 @@ type Edge struct {
 		FeeRateMilliMsat string `json:"fee_rate_milli_msat"`
 		Disabled         bool   `json:"disabled"`
 		MaxHtlcMsat      string `json:"max_htlc_msat"`
+		LastUpdate       int    `json:"last_update"`
 	} `json:"node2_policy"`
 }
 
@@ -84,6 +86,15 @@ type ListChannels struct {
 		Private               bool          `json:"private"`
 		Initiator             bool          `json:"initiator"`
 		ChanStatusFlags       string        `json:"chan_status_flags"`
+		LocalChanReserveSat   string        `json:"local_chan_reserve_sat"`
+		RemoteChanReserveSat  string        `json:"remote_chan_reserve_sat"`
+		StaticRemoteKey       bool          `json:"static_remote_key"`
+		CommitmentType        string        `json:"commitment_type"`
+		Lifetime              string        `json:"lifetime"`
+		Uptime                string        `json:"uptime"`
+		CloseAddress          string        `json:"close_address"`
+		PushAmountSat         string        `json:"push_amount_sat"`
+		ThawHeight            int           `json:"thaw_height"`
 	} `json:"channels"`
 }
 
@@ -124,6 +135,7 @@ type NetworkInfo struct {
 	MinChannelSize       string  `json:"min_channel_size"`
 	MaxChannelSize       string  `json:"max_channel_size"`
 	MedianChannelSizeSat string  `json:"median_channel_size_sat"`
+	NumZombieChans       string  `json:"num_zombie_chans"`
 }
 
 func UnmarshalNetworkInfo(str string) (ni NetworkInfo, err error) {
@@ -133,22 +145,25 @@ func UnmarshalNetworkInfo(str string) (ni NetworkInfo, err error) {
 
 type GetInfo struct {
 	Version             string `json:"version"`
+	CommitHash          string `json:"commit_hash"`
 	IdentityPubkey      string `json:"identity_pubkey"`
 	Alias               string `json:"alias"`
+	Color               string `json:"color"`
 	NumPendingChannels  int    `json:"num_pending_channels"`
 	NumActiveChannels   int    `json:"num_active_channels"`
 	NumInactiveChannels int    `json:"num_inactive_channels"`
 	NumPeers            int    `json:"num_peers"`
 	BlockHeight         int    `json:"block_height"`
 	BlockHash           string `json:"block_hash"`
-	BestHeaderTimestamp int    `json:"best_header_timestamp"`
+	BestHeaderTimestamp string `json:"best_header_timestamp"`
 	SyncedToChain       bool   `json:"synced_to_chain"`
+	SyncedToGraph       bool   `json:"synced_to_graph"`
 	Testnet             bool   `json:"testnet"`
 	Chains              []struct {
 		Chain   string `json:"chain"`
 		Network string `json:"network"`
 	} `json:"chains"`
-	Uris interface{} `json:"uris"`
+	Uris []interface{} `json:"uris"`
 }
 
 func UnmarshalGetInfo(str string) (gi GetInfo, err error) {
@@ -158,17 +173,15 @@ func UnmarshalGetInfo(str string) (gi GetInfo, err error) {
 
 type GetNodeInfo struct {
 	Node struct {
-		LastUpdate int    `json:"last_update"`
-		PubKey     string `json:"pub_key"`
-		Alias      string `json:"alias"`
-		Addresses  []struct {
-			Network string `json:"network"`
-			Addr    string `json:"addr"`
-		} `json:"addresses"`
-		Color string `json:"color"`
+		LastUpdate int           `json:"last_update"`
+		PubKey     string        `json:"pub_key"`
+		Alias      string        `json:"alias"`
+		Addresses  []interface{} `json:"addresses"`
+		Color      string        `json:"color"`
 	} `json:"node"`
-	NumChannels   int    `json:"num_channels"`
-	TotalCapacity string `json:"total_capacity"`
+	NumChannels   int           `json:"num_channels"`
+	TotalCapacity string        `json:"total_capacity"`
+	Channels      []interface{} `json:"channels"`
 }
 
 func UnmarshalGetNodeInfo(str string) (gni GetNodeInfo, err error) {
