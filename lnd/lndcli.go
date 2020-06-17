@@ -114,3 +114,19 @@ func GetGetNodeInfo(cliPath string, pubKey string, isTest bool, options ...strin
 	gni, err = UnmarshalGetNodeInfo(str)
 	return
 }
+
+func GetChannelInfo(cliPath string, channelId string, isTest bool, options ...string) (gni Edge, err error) {
+	str := ""
+	if isTest {
+		str = TestDataGetChannelInfo()
+	} else {
+		options = append(options, "getchaninfo")
+		options = append(options, channelId)
+		str, err = common.ExecCLI(cliPath, options...)
+		if err != nil {
+			return
+		}
+	}
+	gni, err = UnmarshalGetChannelInfo(str)
+	return
+}
