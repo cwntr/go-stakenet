@@ -130,3 +130,18 @@ func GetChannelInfo(cliPath string, channelId string, isTest bool, options ...st
 	gni, err = UnmarshalGetChannelInfo(str)
 	return
 }
+
+func GetListChainTxns(cliPath string, isTest bool, options ...string) (lct ListChainTxns, err error) {
+	str := ""
+	if isTest {
+		str = TestListChainTxns()
+	} else {
+		options = append(options, "listchaintxns")
+		str, err = common.ExecCLI(cliPath, options...)
+		if err != nil {
+			return
+		}
+	}
+	lct, err = UnmarshalListChainTxns(str)
+	return
+}

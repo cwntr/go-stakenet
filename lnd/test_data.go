@@ -2252,6 +2252,44 @@ func TestDataGetChannelInfo() string {
 `
 }
 
+func TestListChainTxns() string {
+	return `{
+    "transactions": [
+        {
+        
+            "tx_hash": "c90ba4cbacda9716190fe1da1csa99e60d8413ce3feb536f9cf0b1a3d2915273",
+            "amount": "-2000000223",
+            "num_confirmations": 204020,
+            "block_hash": "afa3f3bfb9544a8d9b444da93e18435a9adfa2cb8ba6322d4f02a5c33e1fff41",
+            "block_height": 1020380,
+            "time_stamp": "1582580723",
+            "total_fees": "223",
+            "dest_addresses": [
+                "xc1qddy4qm072nkg27fcwsjckrrhtj23wzczlds70d9k3406f07kq58rm6u",
+                "xc1qz63c534tsdqlrlwanagactl8ju3m"
+            ],
+            "raw_tx_hex": "5675759f314552e3ed5d1d175d64360e4f9e8ff221dc555b0477000000000000000000000e070b764286adf78092f4bd299e68ebbe25ec0493cb2b975d9332c3b59aecd530100000000000000000200943577000000002200206b49506dfe54ec85793874258b0c775c95170b02f9cd3c63cf696d1abf497facf31ba7f70000000016001416a38a177254c6b8f17f5979007c7f7767d4770b02483045022100bdb7d0ea91b44a52a0b12ecb1b3e51ed37883da100dbd07a8957cd0e8940ddea022045cfda5eceff941384bb436a6301a1c1dd8fb0e8c30e38af161b08070dda40f2012102d1cd0883620dc3d93d7937b962152ad59819b5aa86f4f02bcef6df6c76955fe002483045022100d36e0c04c62bf4d73199c926959b18f3251b7a62dafb405acc249ba501f9bd6d02200b27a6a2b7d8ca1b840be71ebb3effcef0f69b2a5e5efe8544949369ff42f603012103ac31fff30e4bf3bf9afeb79875d42faef20b54993696592e35c147ba9efa892800000000"
+        },
+        {
+        
+            "tx_hash": "c90ba4cabacda9716190fe1da1c3a99e60d8413ce3feb536f9cf0b1a3d2915272",
+            "amount": "5000000223",
+            "num_confirmations": 204020,
+            "block_hash": "afa3f3bfb9544a8d9b444db93e18435a9adfa2cb8ba6322d4f02a5c33e1fff42",
+            "block_height": 1020380,
+            "time_stamp": "1582580723",
+            "total_fees": "223",
+            "dest_addresses": [
+                "xc1qddy4qm072nasdwsjckrrhtj23wzczl8xncc7054f07kq58rm6u",
+                "xc1qz63c59masdlt9usqlrlwanagactl8ju3m"
+            ],
+            "raw_tx_hex": "3453510259f314552e3ed5d1d175d627dc776cf907699f00e4f9e8ff221dc555b0477000000000000000000000e070b764286adf78092f4bd299e68ebbe25ec0493cb2b975d9332c3b59aecd530100000000000000000200943577000000002200206b49506dfe54ec85793874258b0c775c95170b02f9cd3c63cf696d1abf497facf31ba7f70000000016001416a38a177254c6b8f17f5979007c7f7767d4770b02483045022100bdb7d0ea91b44a52a0b12ecb1b3e51ed37883da100dbd07a8957cd0e8940ddea022045cfda5eceff941384bb436a6301a1c1dd8fb0e8c30e38af161b08070dda40f2012102d1cd0883620dc3d93d7937b962152ad59819b5aa86f4f02bcef6df6c76955fe002483045022100d36e0c04c62bf4d73199c926959b18f3251b7a62dafb405acc249ba501f9bd6d02200b27a6a2b7d8ca1b840be71ebb3effcef0f69b2a5e5efe8544949369ff42f603012103ac31fff30e4bf3bf9afeb79875d42faef20b54993696592e35c147ba9efa892800000000"
+        }
+	]
+}
+`
+}
+
 func TestDataGetWalletBalance() string {
 	return `{
 "total_balance": "2065963146",

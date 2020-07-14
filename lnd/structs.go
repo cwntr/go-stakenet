@@ -49,6 +49,20 @@ type DescribePath struct {
 	Edges []Edge  `json:"edges"`
 }
 
+type ListChainTxns struct {
+	Transactions []struct {
+		TxHash           string   `json:"tx_hash"`
+		Amount           string   `json:"amount"`
+		NumConfirmations int      `json:"num_confirmations"`
+		BlockHash        string   `json:"block_hash"`
+		BlockHeight      int      `json:"block_height"`
+		TimeStamp        string   `json:"time_stamp"`
+		TotalFees        string   `json:"total_fees"`
+		DestAddresses    []string `json:"dest_addresses"`
+		RawTxHex         string   `json:"raw_tx_hex"`
+	} `json:"transactions"`
+}
+
 func UnmarshalDescribePath(str string) (dp DescribePath, err error) {
 	err = json.Unmarshal([]byte(str), &dp)
 	return
@@ -194,5 +208,10 @@ func UnmarshalGetNodeInfo(str string) (gni GetNodeInfo, err error) {
 
 func UnmarshalGetChannelInfo(str string) (gni Edge, err error) {
 	err = json.Unmarshal([]byte(str), &gni)
+	return
+}
+
+func UnmarshalListChainTxns(str string) (lctx ListChainTxns, err error) {
+	err = json.Unmarshal([]byte(str), &lctx)
 	return
 }

@@ -102,3 +102,14 @@ func TestGetListChannels(t *testing.T) {
 	}
 	fmt.Printf("get channel info : %v \n", data)
 }
+
+func TestUnmarshalListChainTxns(t *testing.T) {
+	d := TestListChainTxns()
+	data, err := UnmarshalListChainTxns(d)
+	if err != nil {
+		fmt.Printf("err: %v \n", err)
+		t.Fail()
+		return
+	}
+	fmt.Printf("get chain txns : %v \n", data)
+}
