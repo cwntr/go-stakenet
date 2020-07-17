@@ -113,3 +113,14 @@ func TestUnmarshalListChainTxns(t *testing.T) {
 	}
 	fmt.Printf("get chain txns : %v \n", data)
 }
+
+func TestUnmarshalGetPendingChannel(t *testing.T) {
+	d := TestDataPendingChannels()
+	data, err := UnmarshalPendingChannels(d)
+	if err != nil {
+		fmt.Printf("err: %v \n", err)
+		t.Fail()
+		return
+	}
+	fmt.Printf("pending channels : %v \n", data)
+}

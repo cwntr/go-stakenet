@@ -63,6 +63,14 @@ type ListChainTxns struct {
 	} `json:"transactions"`
 }
 
+type PendingChannels struct {
+	TotalLimboBalance           string        `json:"total_limbo_balance"`
+	PendingOpenChannels         []interface{} `json:"pending_open_channels"`
+	PendingClosingChannels      []interface{} `json:"pending_closing_channels"`
+	PendingForceClosingChannels []interface{} `json:"pending_force_closing_channels"`
+	WaitingCloseChannels        []interface{} `json:"waiting_close_channels"`
+}
+
 func UnmarshalDescribePath(str string) (dp DescribePath, err error) {
 	err = json.Unmarshal([]byte(str), &dp)
 	return
@@ -212,6 +220,11 @@ func UnmarshalGetChannelInfo(str string) (gni Edge, err error) {
 }
 
 func UnmarshalListChainTxns(str string) (lctx ListChainTxns, err error) {
+	err = json.Unmarshal([]byte(str), &lctx)
+	return
+}
+
+func UnmarshalPendingChannels(str string) (lctx PendingChannels, err error) {
 	err = json.Unmarshal([]byte(str), &lctx)
 	return
 }

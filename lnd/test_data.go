@@ -2290,6 +2290,21 @@ func TestListChainTxns() string {
 `
 }
 
+func TestDataPendingChannels() string {
+	return `{
+    "total_limbo_balance": "6753308",
+    "pending_open_channels": [
+    ],
+    "pending_closing_channels": [
+    ],
+    "pending_force_closing_channels": [
+    ],
+    "waiting_close_channels": [
+    ]
+}
+`
+}
+
 func TestDataGetWalletBalance() string {
 	return `{
 "total_balance": "2065963146",

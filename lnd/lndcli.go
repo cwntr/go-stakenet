@@ -145,3 +145,18 @@ func GetListChainTxns(cliPath string, isTest bool, options ...string) (lct ListC
 	lct, err = UnmarshalListChainTxns(str)
 	return
 }
+
+func GetPendingChannels(cliPath string, isTest bool, options ...string) (lct PendingChannels, err error) {
+	str := ""
+	if isTest {
+		str = TestDataPendingChannels()
+	} else {
+		options = append(options, "pendingchannels")
+		str, err = common.ExecCLI(cliPath, options...)
+		if err != nil {
+			return
+		}
+	}
+	lct, err = UnmarshalPendingChannels(str)
+	return
+}
