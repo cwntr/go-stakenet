@@ -32,7 +32,7 @@ func TestGetFullVoteHistory(t *testing.T) {
 		t.Fail()
 		return
 	}
-	if len(votes) != 8075 {
+	if len(votes) != 3744 {
 		t.Fail()
 		return
 	}

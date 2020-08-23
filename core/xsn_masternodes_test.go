@@ -39,19 +39,23 @@ func TestXSNMNParse(t *testing.T) {
 		return
 	}
 	testMN := data[0]
-	if testMN.IP != "149.28.141.200:62583" {
+	if testMN.IP != "80.241.221.233:62583" {
+		fmt.Println(testMN.IP)
 		t.Fail()
 		return
 	}
 	if testMN.Protocol != "70209" {
+		fmt.Println(testMN.Protocol)
 		t.Fail()
 		return
 	}
-	if testMN.Output != "6067a102d131ea27fd4a3fb8c6b189e9f809a42398457df8a5c5f4ba9e650200" {
+	if testMN.Output != "4e276c705878a70bf3084d0c2477f2d4a94a3fd20ba9aa16ad8db6b8aaec1300" {
+		fmt.Println(testMN.Output)
 		t.Fail()
 		return
 	}
-	if testMN.Address != "XypnJqfangXpSFVe3wYcKjQb4UzkNVjE63" {
+	if testMN.Address != "Xt29uBggYxb5TD2M5pL9mKK9id5gAnHbLB" {
+		fmt.Println(testMN.Address)
 		t.Fail()
 		return
 	}
