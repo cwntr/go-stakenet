@@ -72,12 +72,16 @@ type AddressTransactionsV2 struct {
 }
 
 type AddressTransactionV2DataItem struct {
-	ID        string        `json:"id"`
-	Blockhash string        `json:"blockhash"`
-	Size      int           `json:"size"`
-	Time      int           `json:"time"`
-	Inputs    []interface{} `json:"inputs"`
-	Outputs   []struct {
+	ID        string `json:"id"`
+	Blockhash string `json:"blockhash"`
+	Size      int    `json:"size"`
+	Time      int    `json:"time"`
+	Inputs    []struct {
+		Txid  string  `json:"txid"`
+		Index int     `json:"index"`
+		Value float64 `json:"value"`
+	} `json:"inputs"`
+	Outputs []struct {
 		Index     int      `json:"index"`
 		Value     float64  `json:"value"`
 		Address   string   `json:"address"`
