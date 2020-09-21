@@ -16,6 +16,9 @@ const (
 
 	MNStatusEnabled          = "ENABLED"
 	MNStatusNewStartRequired = "NEW_START_REQUIRED"
+	MNStatusPreEnabled       = "PRE_ENABLED"
+	MNStatusPoseBan          = "POSE_BAN"
+	MNStatusExpired          = "EXPIRED"
 
 	//Governance CLI commands
 	ArgumentGovernanceObject         = "gobject"
@@ -64,7 +67,8 @@ func GetXSNMNList(cli string, isTestRequest bool) (xsnItems []MasternodeItem, er
 	rows := strings.Split(data, `",`)
 
 	for _, r := range rows {
-		if strings.Contains(r, MNStatusEnabled) || strings.Contains(r, MNStatusNewStartRequired) {
+		if strings.Contains(r, MNStatusEnabled) || strings.Contains(r, MNStatusNewStartRequired) || strings.Contains(r, MNStatusExpired) ||
+			strings.Contains(r, MNStatusPoseBan) || strings.Contains(r, MNStatusPreEnabled) {
 			x := MasternodeItem{}
 
 			for _, match := range mnRegex.FindAllStringSubmatch(r, -1) {
