@@ -166,7 +166,8 @@ func GetListPendingInvoices(cliPath string, isTest bool, options ...string) (lct
 	if isTest {
 		str = TestDataPendingChannels()
 	} else {
-		options = append(options, "listinvoices --pending_only")
+		options = append(options, "listinvoices")
+		options = append(options, "--pending_only")
 		str, err = common.ExecCLI(cliPath, options...)
 		if err != nil {
 			return
