@@ -2386,3 +2386,469 @@ func TestDataListChannels() string {
 }
 `
 }
+
+func TestInvoices() string {
+	return `{
+    "invoices": [
+        {
+            "memo": "",
+            "r_preimage": null,
+            "r_hash": "c80889338600190f7950ed8b19b8a3a15635f4b70f98e1991e758b1a16b56bb2",
+            "value": "40000",
+            "value_msat": "40000000",
+            "settled": false,
+            "creation_date": "1610972900",
+            "settle_date": "0",
+            "payment_request": "lnbc400u1psq2lhypp5eqygjvuxqqvs772sak93nw9r59trta9hp7vwrxg7wk935944dweqdqqcqzp6sp5mu3aa6ltx7wufg48wd24swfajjsx2r258h7pexydjzurhyvj8cks9qy9qsq5rzczhcdnneacktt6av5h5k5zwlr3k53mex3whj0xfsafq8arf88kdsrcgj7t4nxuenhe35ez5aq08ew39dytvhsw3xzxhzszw6pp8cqelqng5",
+            "description_hash": null,
+            "expiry": "3600",
+            "fallback_addr": "",
+            "cltv_expiry": "58",
+            "route_hints": [
+            ],
+            "private": false,
+            "add_index": "24662",
+            "settle_index": "0",
+            "amt_paid": "40000000",
+            "amt_paid_sat": "40000",
+            "amt_paid_msat": "40000000",
+            "state": "ACCEPTED",
+            "htlcs": [
+                {
+                    "chan_id": "712921140598276097",
+                    "htlc_index": "10958",
+                    "amt_msat": "40000000",
+                    "accept_height": 666606,
+                    "accept_time": "1610972901",
+                    "resolve_time": "0",
+                    "expiry_height": 666667,
+                    "state": "ACCEPTED",
+                    "custom_records": {
+                    },
+                    "mpp_total_amt_msat": "40000000"
+                }
+            ],
+            "features": {
+                "9": {
+                    "name": "tlv-onion",
+                    "is_required": false,
+                    "is_known": true
+                },
+                "15": {
+                    "name": "payment-addr",
+                    "is_required": false,
+                    "is_known": true
+                },
+                "17": {
+                    "name": "multi-path-payments",
+                    "is_required": false,
+                    "is_known": true
+                }
+            },
+            "is_keysend": false
+        },
+        {
+            "memo": "",
+            "r_preimage": null,
+            "r_hash": "f7473960590831ef549978f8ac6411797e86264d702f848184e93ae58dbd000f",
+            "value": "40000",
+            "value_msat": "40000000",
+            "settled": false,
+            "creation_date": "1610979267",
+            "settle_date": "0",
+            "payment_request": "lnbc400u1psqt97rpp57arnjczepqc774ye0ru2ceq309lgvfjdwqhcfqvyayawtrdaqq8sdqqcqzp6sp53zsx6t9z27vg6t77vkzv87fvtgle8ryl9qr5u0zs8wsjlyh5hw0s9qy9qsqhqr8ml0aqs5ufzqzdrm4hx6986yghjkmsw8qnex6nj92x4040434v344f74p8cemml7nlaxw9575x8k60va4fxwptlxxxfezcfep0ycqxmsmys",
+            "description_hash": null,
+            "expiry": "3600",
+            "fallback_addr": "",
+            "cltv_expiry": "58",
+            "route_hints": [
+            ],
+            "private": false,
+            "add_index": "24663",
+            "settle_index": "0",
+            "amt_paid": "40000000",
+            "amt_paid_sat": "40000",
+            "amt_paid_msat": "40000000",
+            "state": "ACCEPTED",
+            "htlcs": [
+                {
+                    "chan_id": "712921140553777152",
+                    "htlc_index": "13833",
+                    "amt_msat": "40000000",
+                    "accept_height": 666613,
+                    "accept_time": "1610979268",
+                    "resolve_time": "0",
+                    "expiry_height": 666674,
+                    "state": "ACCEPTED",
+                    "custom_records": {
+                    },
+                    "mpp_total_amt_msat": "40000000"
+                }
+            ],
+            "features": {
+                "9": {
+                    "name": "tlv-onion",
+                    "is_required": false,
+                    "is_known": true
+                },
+                "15": {
+                    "name": "payment-addr",
+                    "is_required": false,
+                    "is_known": true
+                },
+                "17": {
+                    "name": "multi-path-payments",
+                    "is_required": false,
+                    "is_known": true
+                }
+            },
+            "is_keysend": false
+        },
+        {
+            "memo": "",
+            "r_preimage": null,
+            "r_hash": "d938822b820d3071ec0f8dee096b03c11520a10c3cfe4521ae40f0846e7abc9d",
+            "value": "40000",
+            "value_msat": "40000000",
+            "settled": false,
+            "creation_date": "1610979504",
+            "settle_date": "0",
+            "payment_request": "lnbc400u1psqtx9spp5myugy2uzp5c8rmq03hhqj6crcy2jpggv8nly2gdwgrcggmn6hjwsdqqcqzp6sp5cyxdpf83p55uxlq4nwmsck85zwrdt7g8nyte4q4w6yvev7dpllxq9qy9qsq9hcn56tls5h3yvrz8g9rer09q6432kaq3kq4nxrcc258d69lc5v94pz3pvf3d54qjzxwwxkt4uy2nudujhzghdwuc5ryzyc3k6fp7ngq2g3d46",
+            "description_hash": null,
+            "expiry": "3600",
+            "fallback_addr": "",
+            "cltv_expiry": "58",
+            "route_hints": [
+            ],
+            "private": false,
+            "add_index": "24664",
+            "settle_index": "0",
+            "amt_paid": "40000000",
+            "amt_paid_sat": "40000",
+            "amt_paid_msat": "40000000",
+            "state": "ACCEPTED",
+            "htlcs": [
+                {
+                    "chan_id": "712921140598276097",
+                    "htlc_index": "10959",
+                    "amt_msat": "40000000",
+                    "accept_height": 666614,
+                    "accept_time": "1610979505",
+                    "resolve_time": "0",
+                    "expiry_height": 666675,
+                    "state": "ACCEPTED",
+                    "custom_records": {
+                    },
+                    "mpp_total_amt_msat": "40000000"
+                }
+            ],
+            "features": {
+                "9": {
+                    "name": "tlv-onion",
+                    "is_required": false,
+                    "is_known": true
+                },
+                "15": {
+                    "name": "payment-addr",
+                    "is_required": false,
+                    "is_known": true
+                },
+                "17": {
+                    "name": "multi-path-payments",
+                    "is_required": false,
+                    "is_known": true
+                }
+            },
+            "is_keysend": false
+        },
+        {
+            "memo": "",
+            "r_preimage": null,
+            "r_hash": "ce29189e754d81fb902504e810d749f2540e67a7f0ae80a40e09a6ae70891aa0",
+            "value": "40000",
+            "value_msat": "40000000",
+            "settled": false,
+            "creation_date": "1610985559",
+            "settle_date": "0",
+            "payment_request": "lnbc400u1psqtvzhpp5ec5338n4fkqlhyp9qn5pp46f7f2quea87zhgpfqwpxn2uuyfr2sqdqqcqzp6sp5p90unvhkgl035m52ln5xu2qrk689d7nmfqv87dcpgfvp8z547ymq9qy9qsqekgaucd7gm84frrsg75070uyeuh6lacxsas2p3xq70hw578gcn3yqyllqar6psu7w8q99u86747tup50rpaulmcyrnq2y9ath0lz70spzfduq0",
+            "description_hash": null,
+            "expiry": "3600",
+            "fallback_addr": "",
+            "cltv_expiry": "58",
+            "route_hints": [
+            ],
+            "private": false,
+            "add_index": "24665",
+            "settle_index": "0",
+            "amt_paid": "40000000",
+            "amt_paid_sat": "40000",
+            "amt_paid_msat": "40000000",
+            "state": "ACCEPTED",
+            "htlcs": [
+                {
+                    "chan_id": "712921140553777152",
+                    "htlc_index": "13834",
+                    "amt_msat": "40000000",
+                    "accept_height": 666627,
+                    "accept_time": "1610985560",
+                    "resolve_time": "0",
+                    "expiry_height": 666688,
+                    "state": "ACCEPTED",
+                    "custom_records": {
+                    },
+                    "mpp_total_amt_msat": "40000000"
+                }
+            ],
+            "features": {
+                "9": {
+                    "name": "tlv-onion",
+                    "is_required": false,
+                    "is_known": true
+                },
+                "15": {
+                    "name": "payment-addr",
+                    "is_required": false,
+                    "is_known": true
+                },
+                "17": {
+                    "name": "multi-path-payments",
+                    "is_required": false,
+                    "is_known": true
+                }
+            },
+            "is_keysend": false
+        },
+        {
+            "memo": "",
+            "r_preimage": null,
+            "r_hash": "c587f5c36a3996a3f9ee0d62bdfa572fd0be0373b19f20dcb0699272eced5b88",
+            "value": "2700",
+            "value_msat": "2700000",
+            "settled": false,
+            "creation_date": "1611174589",
+            "settle_date": "0",
+            "payment_request": "lnbc27u1psq3y4app5ckrltsm28xt2870wp43tm7jh9lgtuqmnkx0jph9sdxf89m8dtwyqdqqcqzp6sp5kgcdphu5q4n89l3qpyegyhyyjesja9am4v2rqj6v7g3ghg2agclq9qy9qsqy29gp6zhyzdst2fcyty5f7pu7pw776e3k45epguv5ewjfq7sqwz4j70pgqmt7glu5tk4ry93ru7n6yvyxvwges4xs34suqrv2hd3gvspm7xmfl",
+            "description_hash": null,
+            "expiry": "3600",
+            "fallback_addr": "",
+            "cltv_expiry": "58",
+            "route_hints": [
+            ],
+            "private": false,
+            "add_index": "24980",
+            "settle_index": "0",
+            "amt_paid": "2700000",
+            "amt_paid_sat": "2700",
+            "amt_paid_msat": "2700000",
+            "state": "ACCEPTED",
+            "htlcs": [
+                {
+                    "chan_id": "733275299795566592",
+                    "htlc_index": "4",
+                    "amt_msat": "2700000",
+                    "accept_height": 666942,
+                    "accept_time": "1611174590",
+                    "resolve_time": "0",
+                    "expiry_height": 667003,
+                    "state": "ACCEPTED",
+                    "custom_records": {
+                    },
+                    "mpp_total_amt_msat": "2700000"
+                }
+            ],
+            "features": {
+                "9": {
+                    "name": "tlv-onion",
+                    "is_required": false,
+                    "is_known": true
+                },
+                "15": {
+                    "name": "payment-addr",
+                    "is_required": false,
+                    "is_known": true
+                },
+                "17": {
+                    "name": "multi-path-payments",
+                    "is_required": false,
+                    "is_known": true
+                }
+            },
+            "is_keysend": false
+        },
+        {
+            "memo": "",
+            "r_preimage": null,
+            "r_hash": "f6a0aeb7d5dc501e5289e5d473bd9d2b71fd562238373fdd6f89456f542f6c87",
+            "value": "2700",
+            "value_msat": "2700000",
+            "settled": false,
+            "creation_date": "1611174618",
+            "settle_date": "0",
+            "payment_request": "lnbc27u1psq3yk6pp576s2ad74m3gpu55fuh2880va9dcl643z8qmnlht039zk74p0djrsdqqcqzp6sp5ls78udkn2c8nauu929esypvrnledjvr0uqual0cf77evvu8ec8yq9qy9qsq47eg20ldza23x9zru54fhegx89lhxmnv48ley72aq249d3wfgtqpy98yh6zs73ltgty2akfyk7cvtfp637hp07uzeda78zdkd5eh9qqp7mq3lt",
+            "description_hash": null,
+            "expiry": "3600",
+            "fallback_addr": "",
+            "cltv_expiry": "58",
+            "route_hints": [
+            ],
+            "private": false,
+            "add_index": "24982",
+            "settle_index": "0",
+            "amt_paid": "2700000",
+            "amt_paid_sat": "2700",
+            "amt_paid_msat": "2700000",
+            "state": "ACCEPTED",
+            "htlcs": [
+                {
+                    "chan_id": "733275299795566592",
+                    "htlc_index": "6",
+                    "amt_msat": "2700000",
+                    "accept_height": 666942,
+                    "accept_time": "1611174619",
+                    "resolve_time": "0",
+                    "expiry_height": 667003,
+                    "state": "ACCEPTED",
+                    "custom_records": {
+                    },
+                    "mpp_total_amt_msat": "2700000"
+                }
+            ],
+            "features": {
+                "9": {
+                    "name": "tlv-onion",
+                    "is_required": false,
+                    "is_known": true
+                },
+                "15": {
+                    "name": "payment-addr",
+                    "is_required": false,
+                    "is_known": true
+                },
+                "17": {
+                    "name": "multi-path-payments",
+                    "is_required": false,
+                    "is_known": true
+                }
+            },
+            "is_keysend": false
+        },
+        {
+            "memo": "",
+            "r_preimage": null,
+            "r_hash": "cd140d6e1e2de5dad9648aab337ddd6ec307c7a12fce7d2beb52e3461694dba4",
+            "value": "2700",
+            "value_msat": "2700000",
+            "settled": false,
+            "creation_date": "1611174651",
+            "settle_date": "0",
+            "payment_request": "lnbc27u1psq3yhmpp5e52q6ms79hja4kty324nxlwadmps03ap9l8862lt2t35v955mwjqdqqcqzp6sp5r9h879sanpdj48mukjvqeuqevsj2hpmu0ccapwewhrvfhp70ujnq9qy9qsqwcqc056sv7xz2mp0v0gs9ng5cs4gdtssmas62k3gd0w0xaa2qcspuscasj8dkz7smrm0p2t5alp6rgzt4k9k9w6y7hh0usy7hygcc9qqyh8w7d",
+            "description_hash": null,
+            "expiry": "3600",
+            "fallback_addr": "",
+            "cltv_expiry": "58",
+            "route_hints": [
+            ],
+            "private": false,
+            "add_index": "24984",
+            "settle_index": "0",
+            "amt_paid": "2700000",
+            "amt_paid_sat": "2700",
+            "amt_paid_msat": "2700000",
+            "state": "ACCEPTED",
+            "htlcs": [
+                {
+                    "chan_id": "733275299795566592",
+                    "htlc_index": "8",
+                    "amt_msat": "2700000",
+                    "accept_height": 666942,
+                    "accept_time": "1611174652",
+                    "resolve_time": "0",
+                    "expiry_height": 667003,
+                    "state": "ACCEPTED",
+                    "custom_records": {
+                    },
+                    "mpp_total_amt_msat": "2700000"
+                }
+            ],
+            "features": {
+                "9": {
+                    "name": "tlv-onion",
+                    "is_required": false,
+                    "is_known": true
+                },
+                "15": {
+                    "name": "payment-addr",
+                    "is_required": false,
+                    "is_known": true
+                },
+                "17": {
+                    "name": "multi-path-payments",
+                    "is_required": false,
+                    "is_known": true
+                }
+            },
+            "is_keysend": false
+        },
+        {
+            "memo": "",
+            "r_preimage": null,
+            "r_hash": "0af6d818b5d6df2b89c11b1f4e542790b3737ee3e3c58849e5b5627d60df4f3d",
+            "value": "1000",
+            "value_msat": "1000000",
+            "settled": false,
+            "creation_date": "1611242478",
+            "settle_date": "0",
+            "payment_request": "lnbc10u1psqnxlwpp5ptmdsx946m0jhzwprv05u4p8jzehxlhru0zcsj09k4386cxlfu7sdqqcqzp6sp5yd7mtxhgnlecsh5062q4x85aw40u8wrh9wqevz9vjrpvz9vpgxwq9qy9qsqtml6n7rf7pwtj6c2djnzdl2azqycypnd3e3gaas9sny4sqqkfwd3nnqruyqvg9nrujdgp26ggfypw9xag65l3872xfu7ffmjw3mejmqp853m9x",
+            "description_hash": null,
+            "expiry": "3600",
+            "fallback_addr": "",
+            "cltv_expiry": "58",
+            "route_hints": [
+            ],
+            "private": false,
+            "add_index": "25377",
+            "settle_index": "0",
+            "amt_paid": "1000000",
+            "amt_paid_sat": "1000",
+            "amt_paid_msat": "1000000",
+            "state": "ACCEPTED",
+            "htlcs": [
+                {
+                    "chan_id": "733389648954130433",
+                    "htlc_index": "177",
+                    "amt_msat": "1000000",
+                    "accept_height": 667034,
+                    "accept_time": "1611242479",
+                    "resolve_time": "0",
+                    "expiry_height": 667095,
+                    "state": "ACCEPTED",
+                    "custom_records": {
+                    },
+                    "mpp_total_amt_msat": "1000000"
+                }
+            ],
+            "features": {
+                "9": {
+                    "name": "tlv-onion",
+                    "is_required": false,
+                    "is_known": true
+                },
+                "15": {
+                    "name": "payment-addr",
+                    "is_required": false,
+                    "is_known": true
+                },
+                "17": {
+                    "name": "multi-path-payments",
+                    "is_required": false,
+                    "is_known": true
+                }
+            },
+            "is_keysend": false
+        }
+    ],
+    "last_index_offset": "44014",
+    "first_index_offset": "24662"
+}
+`
+}

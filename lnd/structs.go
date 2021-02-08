@@ -125,6 +125,75 @@ func UnmarshalListChannels(str string) (dp ListChannels, err error) {
 	return
 }
 
+type HTLC struct {
+	ChanID        string `json:"chan_id"`
+	HtlcIndex     string `json:"htlc_index"`
+	AmtMsat       string `json:"amt_msat"`
+	AcceptHeight  int    `json:"accept_height"`
+	AcceptTime    string `json:"accept_time"`
+	ResolveTime   string `json:"resolve_time"`
+	ExpiryHeight  int    `json:"expiry_height"`
+	State         string `json:"state"`
+	CustomRecords struct {
+	} `json:"custom_records"`
+	MppTotalAmtMsat string `json:"mpp_total_amt_msat"`
+}
+
+type Invoice struct {
+	Memo            string        `json:"memo"`
+	RPreimage       interface{}   `json:"r_preimage"`
+	RHash           string        `json:"r_hash"`
+	Value           string        `json:"value"`
+	ValueMsat       string        `json:"value_msat"`
+	Settled         bool          `json:"settled"`
+	CreationDate    string        `json:"creation_date"`
+	SettleDate      string        `json:"settle_date"`
+	PaymentRequest  string        `json:"payment_request"`
+	DescriptionHash interface{}   `json:"description_hash"`
+	Expiry          string        `json:"expiry"`
+	FallbackAddr    string        `json:"fallback_addr"`
+	CltvExpiry      string        `json:"cltv_expiry"`
+	RouteHints      []interface{} `json:"route_hints"`
+	Private         bool          `json:"private"`
+	AddIndex        string        `json:"add_index"`
+	SettleIndex     string        `json:"settle_index"`
+	AmtPaid         string        `json:"amt_paid"`
+	AmtPaidSat      string        `json:"amt_paid_sat"`
+	AmtPaidMsat     string        `json:"amt_paid_msat"`
+	State           string        `json:"state"`
+	Htlcs           []HTLC  `json:"htlcs"`
+	Features struct {
+		Num9 struct {
+			Name       string `json:"name"`
+			IsRequired bool   `json:"is_required"`
+			IsKnown    bool   `json:"is_known"`
+		} `json:"9"`
+		Num15 struct {
+			Name       string `json:"name"`
+			IsRequired bool   `json:"is_required"`
+			IsKnown    bool   `json:"is_known"`
+		} `json:"15"`
+		Num17 struct {
+			Name       string `json:"name"`
+			IsRequired bool   `json:"is_required"`
+			IsKnown    bool   `json:"is_known"`
+		} `json:"17"`
+	} `json:"features"`
+	IsKeysend bool `json:"is_keysend"`
+
+}
+
+type ListInvoices struct {
+	Invoices []Invoice  `json:"invoices"`
+	LastIndexOffset  string `json:"last_index_offset"`
+	FirstIndexOffset string `json:"first_index_offset"`
+}
+
+func UnmarshalListInvoices(str string) (invoices ListInvoices, err error) {
+	err = json.Unmarshal([]byte(str), &invoices)
+	return
+}
+
 type ListPeer struct {
 	PubKey    string `json:"pub_key"`
 	Address   string `json:"address"`

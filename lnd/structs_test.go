@@ -2,7 +2,9 @@ package lnd
 
 import (
 	"fmt"
+	"strconv"
 	"testing"
+	"time"
 )
 
 func TestDescribePath(t *testing.T) {
@@ -123,4 +125,26 @@ func TestUnmarshalGetPendingChannel(t *testing.T) {
 		return
 	}
 	fmt.Printf("pending channels : %v \n", data)
+}
+
+func TestUnmarshalListInvoices(t *testing.T) {
+	d := TestInvoices()
+	data, err := UnmarshalListInvoices(d)
+	if err != nil {
+		fmt.Printf("err: %v \n", err)
+		t.Fail()
+		return
+	}
+	gracePeriod := 1
+	graceTs := time.Now().Add(time.Duration(-gracePeriod) * time.Second)
+	for i, c := range data.Invoices {
+		for _, h := range c.Htlcs {
+			ts, _ := strconv.ParseInt(c.CreationDate, 10, 64)
+			invoiceTs := time.Unix(ts, 0)
+			fmt.Printf("invoices#%d: chanId: %s | created-at: %s | amt: %s sats\n", i , h.ChanID, time.Unix(ts, 0).Format(time.RFC3339), c.Value)
+			if invoiceTs.Before(graceTs) {
+				fmt.Printf("invoices#%d: can cancel with hash: %s \n", i, c.RHash)
+			}
+		}
+	}
 }

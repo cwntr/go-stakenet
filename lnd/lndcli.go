@@ -160,3 +160,29 @@ func GetPendingChannels(cliPath string, isTest bool, options ...string) (lct Pen
 	lct, err = UnmarshalPendingChannels(str)
 	return
 }
+
+func GetListPendingInvoices(cliPath string, isTest bool, options ...string) (lct ListInvoices, err error) {
+	str := ""
+	if isTest {
+		str = TestDataPendingChannels()
+	} else {
+		options = append(options, "listinvoices --pending_only")
+		str, err = common.ExecCLI(cliPath, options...)
+		if err != nil {
+			return
+		}
+	}
+	lct, err = UnmarshalListInvoices(str)
+	return
+}
+
+//Pass payment hash to cancel invoice
+func CancelInvoice(cliPath string, rhash string, options ...string) (err error) {
+	options = append(options, "cancelinvoice")
+	options = append(options, rhash)
+	_ , err = common.ExecCLI(cliPath, options...)
+	if err != nil {
+		return
+	}
+	return
+}
