@@ -217,7 +217,17 @@ type RewardSummary struct {
 }
 
 type Prices struct {
-	USD float64 `json:"usd"`
+	Try       float64 `json:"try"`
+	Gbp       float64 `json:"gbp"`
+	Nzd       float64 `json:"nzd"`
+	Uah       float64 `json:"uah"`
+	Mxn       float64 `json:"mxn"`
+	Btc       float64 `json:"btc"`
+	Jpy       float64 `json:"jpy"`
+	Marketcap float64 `json:"marketcap"`
+	Usd       float64 `json:"usd"`
+	Volume    float64 `json:"volume"`
+	Eur       float64 `json:"eur"`
 }
 
 type Stats struct {
