@@ -203,12 +203,15 @@ type BlockTransactions struct {
 }
 
 type RewardSummary struct {
-	AverageReward    float64 `json:"averageReward"`
-	AverageInput     float64 `json:"averageInput"`
-	MedianInput      float64 `json:"medianInput"`
-	AveragePoSInput  float64 `json:"averagePoSInput"`
-	AverageTPoSInput float64 `json:"averageTPoSInput"`
-	MedianWaitTime   float64 `json:"medianWaitTime"`
+	AverageReward                     int     `json:"averageReward"`
+	AverageInput                      float64 `json:"averageInput"`
+	MedianInput                       float64 `json:"medianInput"`
+	AveragePoSInput                   float64 `json:"averagePoSInput"`
+	AverageTPoSInput                  float64 `json:"averageTPoSInput"`
+	MedianWaitTime                    float64 `json:"medianWaitTime"`
+	AverageWaitTime                   float64 `json:"averageWaitTime"`
+	RewardedAddressesCountLast72Hours int     `json:"rewardedAddressesCountLast72Hours"`
+	RewardedAddressesSumLast72Hours   float64 `json:"rewardedAddressesSumLast72Hours"`
 }
 
 type Prices struct {
@@ -222,6 +225,22 @@ type Stats struct {
 	CirculatingSupply float64 `json:"circulatingSupply"`
 	TotalSupply       float64 `json:"totalSupply"`
 	Transactions      int     `json:"transactions"`
+}
+
+type NodeStats struct {
+	Masternodes          int `json:"masternodes"`
+	EnabledMasternodes   int `json:"enabledMasternodes"`
+	MasternodesProtocols struct {
+		Num70208 int `json:"70208"`
+		Num70209 int `json:"70209"`
+		Num70210 int `json:"70210"`
+	} `json:"masternodesProtocols"`
+	Tposnodes          int `json:"tposnodes"`
+	EnabledTposnodes   int `json:"enabledTposnodes"`
+	TposnodesProtocols struct {
+		Num70210 int `json:"70210"`
+	} `json:"tposnodesProtocols"`
+	CoinsStaking float64 `json:"coinsStaking"`
 }
 
 type Balance struct {

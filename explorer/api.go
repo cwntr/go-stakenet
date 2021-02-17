@@ -26,6 +26,7 @@ const (
 	GetBlocksTransactionsByHash = "/v2/blocks/%s/transactions"
 
 	GetStats          = "/stats"
+	GetNodeStats      = "/node-stats"
 	GetRewardsSummary = "/rewards-summary"
 	GetPrices         = "/prices"
 
@@ -152,6 +153,15 @@ func (x *API) GetBlocksTransactionsByHash(blockhash string, query url.Values) (b
 
 func (x *API) GetStats() (s Stats, err error) {
 	body, err := x.get(fmt.Sprintf("%s%s", x.baseUrl, GetStats))
+	if err != nil {
+		return
+	}
+	err = json.Unmarshal(body, &s)
+	return
+}
+
+func (x *API) GetNodeStats() (s NodeStats, err error) {
+	body, err := x.get(fmt.Sprintf("%s%s", x.baseUrl, GetNodeStats))
 	if err != nil {
 		return
 	}

@@ -235,6 +235,23 @@ func TestAPI_Stats(t *testing.T) {
 	}
 }
 
+func TestAPI_NodeStats(t *testing.T) {
+	client := NewXSNExplorerAPIClient(nil)
+	s, err := client.GetNodeStats()
+	if err != nil {
+		t.Fail()
+		return
+	}
+	if s.Tposnodes == 0 {
+		t.Fail()
+		return
+	}
+	if s.Masternodes == 0 {
+		t.Fail()
+		return
+	}
+}
+
 func TestAPI_GetRewardsSummary(t *testing.T) {
 	client := NewXSNExplorerAPIClient(nil)
 	summary, err := client.GetRewardsSummary()
