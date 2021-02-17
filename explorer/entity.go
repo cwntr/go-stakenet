@@ -212,6 +212,8 @@ type RewardSummary struct {
 	AverageWaitTime                   float64 `json:"averageWaitTime"`
 	RewardedAddressesCountLast72Hours int     `json:"rewardedAddressesCountLast72Hours"`
 	RewardedAddressesSumLast72Hours   float64 `json:"rewardedAddressesSumLast72Hours"`
+	MasternodesROI                    float64 `json:"masternodesROI"`
+	StakingROI                        float64 `json:"stakingROI"`
 }
 
 type Prices struct {
