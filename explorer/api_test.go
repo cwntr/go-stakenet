@@ -286,18 +286,17 @@ func TestAPI_GetRewardsSummary(t *testing.T) {
 	}
 }
 
-
 func TestAPI_GetPrices(t *testing.T) {
 	client := NewXSNExplorerAPIClient(nil)
-	prices, err := client.GetPrices("xsn")
+	prices, err := client.GetPrices()
 	fmt.Printf("prices: %v\n", prices)
 	if err != nil {
 		fmt.Printf("err: %v \n", err)
 		t.Fail()
 		return
 	}
-	if prices.USD <= 0 {
-		fmt.Println("b")
+	if prices.Usd <= 0 {
+		fmt.Println("prices.Usd <= 0")
 		t.Fail()
 		return
 	}

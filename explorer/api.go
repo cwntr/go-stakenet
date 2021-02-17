@@ -178,8 +178,8 @@ func (x *API) GetRewardsSummary() (s RewardSummary, err error) {
 	return
 }
 
-func (x *API) GetPrices(coin string) (s Prices, err error) {
-	body, err := x.get(fmt.Sprintf("%s/%s%s", x.baseUrl, coin, GetPrices))
+func (x *API) GetPrices() (s Prices, err error) {
+	body, err := x.get(fmt.Sprintf("%s/%s", x.baseUrl, GetPrices))
 	if err != nil {
 		return
 	}
