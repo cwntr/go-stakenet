@@ -211,7 +211,7 @@ func (x *API) GetMasternodes(query url.Values) (m Masternodes, err error) {
 
 //offset: Int ?= 0, limit: Int ?= 10, orderBy: String ?= "
 func (x *API) GetMerchantnodes(query url.Values) (m Merchantnodes, err error) {
-	body, err := x.get(fmt.Sprintf("%s%s?%s", x.baseUrl, GetMasternodes, query.Encode()))
+	body, err := x.get(fmt.Sprintf("%s%s?%s", x.baseUrl, GetMerchantnodes, query.Encode()))
 	if err != nil {
 		return
 	}
