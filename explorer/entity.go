@@ -280,3 +280,21 @@ type Masternode struct {
 	LastSeen      int    `json:"lastSeen"`
 	Payee         string `json:"payee"`
 }
+
+type Merchantnodes struct {
+	Offset int        `json:"offset"`
+	Limit  int        `json:"limit"`
+	Total  int        `json:"total"`
+	Data   []Merchant `json:"data"`
+}
+
+type Merchant struct {
+	Pubkey        string `json:"pubkey"`
+	Txid          string `json:"txid"`
+	IP            string `json:"ip"`
+	Protocol      string `json:"protocol"`
+	Status        string `json:"status"`
+	ActiveSeconds int    `json:"activeSeconds"`
+	LastSeen      int    `json:"lastSeen"`
+	Payee         string `json:"payee"`
+}

@@ -35,6 +35,8 @@ const (
 	GetMasternodes     = "/masternodes"
 	GetMasternodesByIP = "/masternodes/%s"
 
+	GetMerchantnodes = "/merchantnodes"
+
 	//V2
 	GetAddressTransactionsV2 = "/v2/addresses/%s/transactions"
 )
@@ -199,6 +201,16 @@ func (x *API) GetBalances(query url.Values) (b Balance, err error) {
 
 //offset: Int ?= 0, limit: Int ?= 10, orderBy: String ?= "
 func (x *API) GetMasternodes(query url.Values) (m Masternodes, err error) {
+	body, err := x.get(fmt.Sprintf("%s%s?%s", x.baseUrl, GetMasternodes, query.Encode()))
+	if err != nil {
+		return
+	}
+	err = json.Unmarshal(body, &m)
+	return
+}
+
+//offset: Int ?= 0, limit: Int ?= 10, orderBy: String ?= "
+func (x *API) GetMerchantnodes(query url.Values) (m Merchantnodes, err error) {
 	body, err := x.get(fmt.Sprintf("%s%s?%s", x.baseUrl, GetMasternodes, query.Encode()))
 	if err != nil {
 		return

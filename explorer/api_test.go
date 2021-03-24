@@ -344,3 +344,21 @@ func TestAPI_GetMasternodes(t *testing.T) {
 		return
 	}
 }
+
+func TestAPI_GetMerchantnodes(t *testing.T) {
+	client := NewXSNExplorerAPIClient(nil)
+	q := url.Values{}
+	q.Set("limit", "2")
+	q.Set("offset", "1")
+	q.Set("orderBy", "activeSeconds:desc")
+	mns, err := client.GetMerchantnodes(q)
+	if err != nil {
+		t.Fail()
+		return
+	}
+	if mns.Offset != 1 || mns.Limit != 2 || len(mns.Data) != 2 {
+		t.Fail()
+		return
+	}
+
+}
