@@ -111,7 +111,7 @@ type ListChannels struct {
 		LocalChanReserveSat   string        `json:"local_chan_reserve_sat"`
 		RemoteChanReserveSat  string        `json:"remote_chan_reserve_sat"`
 		StaticRemoteKey       bool          `json:"static_remote_key"`
-		CommitmentType        string        `json:"commitment_type"`
+		//CommitmentType        string        `json:"commitment_type"`
 		Lifetime              string        `json:"lifetime"`
 		Uptime                string        `json:"uptime"`
 		CloseAddress          string        `json:"close_address"`
